@@ -4,11 +4,11 @@ import Content from '../../components/Content'
 import Text from '../../components/Text'
 import Button from '../../components/Button'
 
-export interface Props {
+export type Props = {
   navigation: any
 }
 
-const HomeScreen: React.FC<Props> = ({ navigation }) => {
+const HomeScreen = ({ navigation }: Props): JSX.Element => {
   return (
     <Container>
       <Content>

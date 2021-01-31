@@ -5,7 +5,7 @@ import DetailScreen from '../screens/DetailScreen'
 
 const Stack = createStackNavigator()
 
-const AppStack: React.FC = () => {
+const AppStack = (): JSX.Element => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Main" component={MainTab} />

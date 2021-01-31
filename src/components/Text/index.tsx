@@ -1,8 +1,16 @@
 import React from 'react'
 import { Text as RNText, StyleSheet, TextProps } from 'react-native'
 
-const Text: React.FC<TextProps> = (props) => {
-  return <RNText style={styles.text} {...props} />
+export type Props = {
+  children: string
+} & TextProps
+
+const Text = ({ children, ...props }: Props): JSX.Element => {
+  return (
+    <RNText style={styles.text} {...props}>
+      {children}
+    </RNText>
+  )
 }
 
 const styles = StyleSheet.create({

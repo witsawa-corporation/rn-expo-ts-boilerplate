@@ -5,7 +5,7 @@ import SettingsScreen from '../screens/SettingsScreen'
 
 const Tab = createBottomTabNavigator()
 
-const MainTab: React.FC = () => {
+const MainTab = (): JSX.Element => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />

@@ -5,7 +5,7 @@ import SignupScreen from '../screens/SignupScreen'
 
 const Stack = createStackNavigator()
 
-const AuthStack: React.FC = () => {
+const AuthStack = (): JSX.Element => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={LoginScreen} />

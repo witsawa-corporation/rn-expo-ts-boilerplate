@@ -1,17 +1,17 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 
-export interface Props {
+export type Props = {
   enabledScroll?: boolean
   noPadding?: boolean
   children: React.ReactNode
 }
 
-const Content: React.FC<Props> = ({
+const Content = ({
   noPadding = false,
   enabledScroll = true,
   children,
-}) => {
+}: Props): JSX.Element => {
   if (enabledScroll) {
     return (
       <ScrollView

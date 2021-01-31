@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import AuthStack from './AuthStack'
 import AppStack from './AppStack'
 
-const Navigation: React.FC = () => {
+const Navigation = (): JSX.Element => {
   const isAuth = true
   return (
     <NavigationContainer>

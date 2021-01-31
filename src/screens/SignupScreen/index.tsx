@@ -3,7 +3,7 @@ import Container from '../../components/Container'
 import Content from '../../components/Content'
 import Text from '../../components/Text'
 
-const SignupScreen: React.FC = () => {
+const SignupScreen = (): JSX.Element => {
   return (
     <Container>
       <Content>
