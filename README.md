@@ -6,6 +6,8 @@ react-native with expo and typescript
 - [x] typescript
 - [x] code standard with eslint and prettier
 - [x] git-hook with husky
-- [ ] navigate with react-navigation
+- [x] navigate with react-navigation
+- [ ] css in js (emotion-js)
+- [ ] form component
 - [ ] auth context
 - [ ] multi language app
