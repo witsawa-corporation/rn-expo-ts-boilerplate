@@ -1,8 +1,8 @@
 import React from 'react'
-import Container from '../../components/Container'
-import Content from '../../components/Content'
-import Text from '../../components/Text'
-import Button from '../../components/Button'
+import Container from 'components/Container'
+import Content from 'components/Content'
+import Text from 'components/Text'
+import Button from 'components/Button'
 
 export type Props = {
   navigation: any

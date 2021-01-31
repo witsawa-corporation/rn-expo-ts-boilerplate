@@ -8,6 +8,16 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "assets/*": ["./assets/*"],
+      "components/*": ["./src/components/*"],
+      "screens/*": ["./src/screens/*"],
+      "contexts/*": ["./src/contexts"],
+      "theme/*": ["./src/theme/*"],
+      "navigations/*": ["./src/navigations/*"],
+      "config/*": ["./config/*"],
+    }
   }
 }
