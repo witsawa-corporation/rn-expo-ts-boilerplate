@@ -8,6 +8,8 @@ react-native with expo and typescript
 - [x] git-hook with husky
 - [x] navigate with react-navigation
 - [x] css in js (emotion-js)
-- [ ] form component
+- [x] form component
 - [ ] auth context
 - [ ] multi language app
+- [ ] unit test
+- [ ] custom font family
