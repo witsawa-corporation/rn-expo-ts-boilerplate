@@ -1,30 +1,50 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { TextInputProps } from 'react-native'
 import styled from '@emotion/native'
 import { useFormContext, Controller } from 'react-hook-form'
 
 import { Item, Label, ErrorMessage } from './components'
 
-const TextInput = styled.TextInput`
+interface Props extends TextInputProps {
+  name: string
+  line?: boolean
+  label?: string
+  style?: {
+    [key: string]: unknown
+  }
+  testID: string
+  itemStyle?: {
+    [key: string]: unknown
+  }
+  errorInside?: boolean
+}
+interface InputProps {
+  line: boolean
+}
+interface ErrorBoxProps {
+  errorInside: boolean
+}
+
+const TextInput = styled.TextInput<InputProps>`
   ${({ theme, line }) => {
     if (line) {
       return `
-    border-bottom-width:1;
-    border-bottom-color: ${theme.colors.greyInput};
-    border-radius: 0px;
-    `
+        border-bottom-width:1;
+        border-bottom-color: ${theme.input.borderColor};
+        border-radius: 0px;
+      `
     }
     return `
-  border: 1px solid ${theme.colors.secondary};
-  border-radius: 10px;
-  margin: 10px 0;
-  padding: 10px;
-  `
+      border: 1px solid ${theme.color.primary};
+      border-radius: 10px;
+      margin-top: 10px;
+      padding: 10px;
+     `
   }}
   background-color: transparent;
-  font-family: Kanit_400Regular;
+  /* font-family: Kanit_400Regular; */
 `
-const ErrorBox = styled.View`
+const ErrorBox = styled.View<ErrorBoxProps>`
   position: ${(props) => props.errorInside && 'absolute'};
   bottom: ${(props) => props.errorInside && '5px'};
   padding: ${(props) => props.errorInside && '8px'};
@@ -37,10 +57,9 @@ export const Input = ({
   style,
   testID,
   itemStyle = {},
-  defaultValue,
   errorInside = false,
   ...props
-}) => {
+}: Props): JSX.Element => {
   const { control, errors } = useFormContext()
   return (
     <Item style={{ ...itemStyle }}>
@@ -51,12 +70,10 @@ export const Input = ({
           <>
             <Item style={itemStyle}>
               <TextInput
-                // ref={register}
                 testID={testID}
                 onBlur={onBlur}
                 onChangeText={(value) => onChange(value)}
                 value={value && value.toString()}
-                defaultValue={defaultValue}
                 style={style}
                 line={line}
                 {...props}
@@ -64,11 +81,7 @@ export const Input = ({
             </Item>
             {errors[name] && (
               <ErrorBox errorInside={errorInside}>
-                {errors[name].type === 'required' ? (
-                  <ErrorMessage>* Required</ErrorMessage>
-                ) : (
-                  <ErrorMessage>{errors[name].message}</ErrorMessage>
-                )}
+                <ErrorMessage>{errors[name].message}</ErrorMessage>
               </ErrorBox>
             )}
           </>
@@ -77,16 +90,4 @@ export const Input = ({
       />
     </Item>
   )
-}
-
-Input.propTypes = {
-  name: PropTypes.string,
-  line: PropTypes.bool,
-  label: PropTypes.string,
-  value: PropTypes.any,
-  style: PropTypes.object,
-  itemStyle: PropTypes.object,
-  errorInside: PropTypes.bool,
-  defaultValue: PropTypes.any,
-  testID: PropTypes.string.isRequired,
 }

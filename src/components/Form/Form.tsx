@@ -1,25 +1,30 @@
 import React from 'react'
 import { View } from 'react-native'
-import PropTypes from 'prop-types'
+import { AnyObjectSchema } from 'yup'
 import { FormProvider, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-export const Form = ({ defaultValues = {}, children, onSubmit, schema }) => {
+interface Props {
+  defaultValues: {
+    [key: string]: unknown
+  }
+  children: JSX.Element | JSX.Element[]
+  schema: AnyObjectSchema
+}
+
+export const Form = ({
+  defaultValues = {},
+  children,
+  schema,
+}: Props): JSX.Element => {
   const methods = useForm({
     defaultValues,
     resolver: yupResolver(schema),
   })
 
   return (
-    <FormProvider {...methods} onSubmit={onSubmit}>
+    <FormProvider {...methods}>
       <View>{children}</View>
     </FormProvider>
   )
-}
-
-Form.propTypes = {
-  defaultValues: PropTypes.object,
-  children: PropTypes.node.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  schema: PropTypes.object,
 }

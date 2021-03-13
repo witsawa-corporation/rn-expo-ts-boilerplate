@@ -1,29 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useFormContext } from 'react-hook-form'
-import { Item } from './components'
 import Button from 'components/Button'
+import { Item } from './components'
+
+interface Props {
+  title: string
+  testID: string
+  disabled?: boolean
+  onSubmit: (data: unknown, e: unknown, reset: unknown) => void
+}
 
 export const SubmitButton = ({
   title,
-  style,
-  fontSize,
   testID,
-  disable = false,
-  modal = false,
+  disabled = false,
+  onSubmit,
   ...rest
-}) => {
-  const { handleSubmit, onSubmit, reset } = useFormContext()
+}: Props): JSX.Element => {
+  const { handleSubmit, reset } = useFormContext()
   return (
     <Item>
       <Button
         testID={testID}
-        style={{ ...style }}
         title={title}
-        onPress={handleSubmit((data, e) => onSubmit(data, e, reset))}
-        fontSize={fontSize}
-        disable={disable}
-        modal={modal}
+        onPress={handleSubmit((data, e) => {
+          onSubmit(data, e, reset)
+        })}
+        disabled={disabled}
         {...rest}
       />
     </Item>

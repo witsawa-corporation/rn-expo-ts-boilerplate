@@ -12,5 +12,8 @@ declare module '@emotion/react' {
       warning: strinng
       success: string
     }
+    input: {
+      borderColor: string
+    }
   }
 }
