@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import MainTab from './MainTab'
-import DetailScreen from '../screens/DetailScreen'
+import DetailScreen from 'screens/DetailScreen'
 
 const Stack = createStackNavigator()
 

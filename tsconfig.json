@@ -3,7 +3,10 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "skipLibCheck": true,
@@ -11,13 +14,28 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "assets/*": ["./assets/*"],
-      "components/*": ["./src/components/*"],
-      "screens/*": ["./src/screens/*"],
-      "contexts/*": ["./src/contexts/*"],
-      "theme/*": ["./src/theme/*"],
-      "navigations/*": ["./src/navigations/*"],
-      "config/*": ["./config/*"],
+      "assets/*": [
+        "./assets/*"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "screens/*": [
+        "./src/screens/*"
+      ],
+      "contexts/*": [
+        "./src/contexts/*"
+      ],
+      "theme/*": [
+        "./src/theme/*"
+      ],
+      "navigations/*": [
+        "./src/navigations/*"
+      ],
+      "config/*": [
+        "./config/*"
+      ]
     }
-  }
+  },
+  "extends": "expo/tsconfig.base"
 }

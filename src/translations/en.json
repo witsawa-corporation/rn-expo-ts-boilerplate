@@ -1,0 +1,17 @@
+{
+  "screens": {
+    "LoginScreen": {
+      "title": "Login",
+      "form": {
+        "email": "Email",
+        "password": "Password"
+      },
+      "errors": {
+        "emailRequired": "Please input your email",
+        "emailInvalid": "Please input valid email",
+        "passwordRequired": "Please input your password"
+      },
+      "button": "Log in"
+    }
+  }
+}

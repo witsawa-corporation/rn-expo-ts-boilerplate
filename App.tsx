@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { setCustomTextInput, setCustomText } from 'react-native-global-props'
 import Navigation from './src/navigations'
 import theme from './src/theme'
+import { LocalizationProvider } from './src/contexts/LocalizationContext'
 
 setCustomText({
   allowFontScaling: false,
@@ -18,7 +19,9 @@ export default function App(): JSX.Element {
     <ThemeProvider theme={theme}>
       <SafeAreaProvider>
         <StatusBar style="auto" />
-        <Navigation />
+        <LocalizationProvider>
+          <Navigation />
+        </LocalizationProvider>
       </SafeAreaProvider>
     </ThemeProvider>
   )

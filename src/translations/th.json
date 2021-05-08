@@ -1,0 +1,17 @@
+{
+  "screens": {
+    "LoginScreen": {
+      "title": "เข้าสู่ระบบ",
+      "form": {
+        "email": "อีเมล",
+        "password": "รหัสผ่าน"
+      },
+      "errors": {
+        "emailRequired": "กรุณากรอกอีเมลของคุณ",
+        "emailInvalid": "กรุณากรอกอีเมลที่ถูกต้อง",
+        "passwordRequired": "กรุณากรอกรหัสผ่านของคุณ"
+      },
+      "button": "เข้าสู่ระบบ"
+    }
+  }
+}
