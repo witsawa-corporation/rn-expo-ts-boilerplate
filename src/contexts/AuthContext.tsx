@@ -110,6 +110,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
         }
       },
       logout: async () => {
+        await SecureStore.deleteItemAsync('userToken')
         dispatch({ type: 'LOGOUT', token: null })
       },
       register: async (data: {
@@ -130,8 +131,6 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
     }),
     []
   )
-
-  console.log(state)
 
   return (
     <AuthContext.Provider value={{ authContext, state }}>

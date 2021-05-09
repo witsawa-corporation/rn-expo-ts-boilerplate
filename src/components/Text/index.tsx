@@ -1,22 +1,22 @@
 import React from 'react'
-import { Text as RNText, StyleSheet, TextProps } from 'react-native'
+import { TextProps } from 'react-native'
+import styled from '@emotion/native'
 
 export type Props = {
   children: string
+  bold?: boolean
 } & TextProps
 
-const Text = ({ children, ...props }: Props): JSX.Element => {
+const RNText = styled.Text<Props>`
+  font-family: ${({ bold }) => (bold ? 'bold' : 'regular')};
+`
+
+const Text = ({ children, bold, ...props }: Props): JSX.Element => {
   return (
-    <RNText style={styles.text} {...props}>
+    <RNText bold={bold} {...props}>
       {children}
     </RNText>
   )
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-  },
-})
 
 export default Text

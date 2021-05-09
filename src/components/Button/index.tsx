@@ -43,7 +43,7 @@ const Button = ({
       block={block}
       disabled={disabled}
     >
-      <ButtonText>{title}</ButtonText>
+      <ButtonText bold>{title}</ButtonText>
     </Touchable>
   )
 }
