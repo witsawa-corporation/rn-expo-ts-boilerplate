@@ -4,7 +4,12 @@ import HomeScreen from 'screens/HomeScreen'
 import SettingsScreen from 'screens/SettingsScreen'
 import { useLocalization } from 'contexts/LocalizationContext'
 
-const Tab = createBottomTabNavigator()
+export type TabParamList = {
+  Home: undefined
+  Settings: undefined
+}
+
+const Tab = createBottomTabNavigator<TabParamList>()
 
 const MainTab = (): JSX.Element => {
   const { t } = useLocalization()
@@ -12,12 +17,20 @@ const MainTab = (): JSX.Element => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name={t('screens.HomeScreen.title', { defaultValue: 'Home' })}
+        name="Home"
         component={HomeScreen}
+        options={{
+          title: t('screens.HomeScreen.title', { defaultValue: 'Home' }),
+        }}
       />
       <Tab.Screen
-        name={t('screens.SettingsScreen.title', { defaultValue: 'Settings' })}
+        name="Settings"
         component={SettingsScreen}
+        options={{
+          title: t('screens.SettingsScreen.title', {
+            defaultValue: 'Settings',
+          }),
+        }}
       />
     </Tab.Navigator>
   )

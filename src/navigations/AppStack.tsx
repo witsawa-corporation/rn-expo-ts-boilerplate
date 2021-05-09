@@ -3,7 +3,12 @@ import { createStackNavigator } from '@react-navigation/stack'
 import MainTab from './MainTab'
 import DetailScreen from 'screens/DetailScreen'
 
-const Stack = createStackNavigator()
+export type StackParamList = {
+  Main: undefined
+  Details: undefined
+}
+
+const Stack = createStackNavigator<StackParamList>()
 
 const AppStack = (): JSX.Element => {
   return (

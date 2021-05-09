@@ -19,12 +19,11 @@ react-native with expo and typescript
 - [ ] check network connection
 
 ## Components
-- Container
-- Content
-- Text
-- Button
-- Form
-- TextInput
-- Text
-- Alert
-- DropdownSelect
+- [x] Container
+- [x] Content
+- [x] Text
+- [x] Button
+- [x] Form
+- [x] TextInput
+- [ ] Alert
+- [ ] DropdownSelect
