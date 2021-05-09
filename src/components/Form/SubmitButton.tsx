@@ -8,7 +8,7 @@ interface Props {
   title: string
   testID: string
   disabled?: boolean
-  onSubmit: (data: unknown, e: unknown, reset: unknown) => void
+  onSubmit: (data: any, e: unknown, reset: unknown) => void
 }
 
 export const SubmitButton = ({

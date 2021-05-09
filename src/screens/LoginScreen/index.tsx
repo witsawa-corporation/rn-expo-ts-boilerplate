@@ -1,6 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import { useLocalization } from 'contexts/LocalizationContext'
+import { useAuth } from 'contexts/AuthContext'
 import Container from 'components/Container'
 import Content from 'components/Content'
 import Text from 'components/Text'
@@ -13,6 +14,9 @@ const defaultValues = {
 
 const LoginScreen = (): JSX.Element => {
   const { t } = useLocalization()
+  const {
+    authContext: { login },
+  } = useAuth()
 
   const schema = yup.object().shape({
     email: yup
@@ -25,8 +29,9 @@ const LoginScreen = (): JSX.Element => {
       .string()
       .required(t('screens.LoginScreen.errors.passwordRequired')),
   })
-  const onSubmit = (data: unknown) => {
+  const onSubmit = (data: { email: string; password: string }) => {
     console.log(data)
+    login(data)
   }
 
   return (
