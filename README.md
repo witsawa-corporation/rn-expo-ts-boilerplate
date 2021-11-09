@@ -3,6 +3,7 @@
 react-native with expo and typescript
 
 ## Features
+
 - [x] typescript
 - [x] code standard with eslint and prettier
 - [ ] stylelint
@@ -19,6 +20,7 @@ react-native with expo and typescript
 - [ ] check network connection
 
 ## Components
+
 - [x] Container
 - [x] Content
 - [x] Text
@@ -27,3 +29,8 @@ react-native with expo and typescript
 - [x] TextInput
 - [ ] Alert
 - [ ] DropdownSelect
+
+## Checklist when upgrade Expo SDK
+
+🚨 The following packages were not updated. You should check the READMEs for those repositories to determine what version is compatible with your new set of packages:
+@emotion/native, @emotion/react, @expo-google-fonts/inter, @expo-google-fonts/sarabun, @hookform/resolvers, @react-native-community/masked-view, @react-navigation/bottom-tabs, @react-navigation/native, @react-navigation/stack, dayjs, emotion-theming, i18n-js, react-hook-form, react-native-global-props, react-native-safe-area-view, yup, @types/i18n-js, @types/react-native-global-props, @typescript-eslint/eslint-plugin, @typescript-eslint/parser, eslint, eslint-config-prettier, eslint-plugin-prettier, eslint-plugin-react, husky, prettier, pretty-quick
