@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as SecureStore from 'expo-secure-store'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 interface Props {
   children: JSX.Element
@@ -81,7 +81,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       let userToken = null
 
       try {
-        userToken = await SecureStore.getItemAsync('userToken')
+        userToken = await AsyncStorage.getItem('userToken')
       } catch (e) {
         // Restoring token failed
       }
@@ -101,16 +101,16 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       login: async (data: { email: string; password: string }) => {
         // In a production app, we need to send some data (usually username, password) to server and get a token
         // We will also need to handle errors if sign in failed
-        // After getting token, we need to persist the token using `SecureStore`
+        // After getting token, we need to persist the token using `AsyncStorage`
         // In the example, we'll use a dummy token
         if (data.email && data.password) {
           const token = 'dummy-auth-token'
-          await SecureStore.setItemAsync('userToken', token)
+          await AsyncStorage.setItem('userToken', token)
           dispatch({ type: 'LOGIN', token })
         }
       },
       logout: async () => {
-        await SecureStore.deleteItemAsync('userToken')
+        await AsyncStorage.removeItem('userToken')
         dispatch({ type: 'LOGOUT', token: null })
       },
       register: async (data: {
@@ -121,7 +121,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
       }) => {
         // In a production app, we need to send user data to server and get a token
         // We will also need to handle errors if sign up failed
-        // After getting token, we need to persist the token using `SecureStore`
+        // After getting token, we need to persist the token using `AsyncStorage`
         // In the example, we'll use a dummy token
 
         console.log(data)
